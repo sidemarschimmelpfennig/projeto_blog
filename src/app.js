@@ -6,6 +6,12 @@ const cors = require('cors');
 const helmet = require('helmet');
 const app = express();
 
+const { Category, Article } = require('./models')
+
+// Middlewares
+//app.use(cors());
+//app.use(helmet());
+
 // Imports files --------
 const routes = require('./routes');
 const connection = require('./database/database');
@@ -31,9 +37,7 @@ connection
     console.log(error);
 })
 
-// Middlewares
-app.use(cors());
-app.use(helmet());
+
 
 // Routes
 app.use(routes);
