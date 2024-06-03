@@ -1,0 +1,27 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/homeNavbar.ejs') %>
+<body>
+    <br>
+    <div class="container">        
+            <div class="card">
+                <div class="card-header">
+                    <% if (article && article.title) { %>
+                        <h5 class="card-title"><%= article.title %></h5>
+                    <% } else { %>
+                        <h5 class="card-title">Título não disponível</h5>
+                    <% } %>
+                </div>                
+                <div class="card-body">
+                    <% if (article && article.body) { %>
+                        <%- article.body %>
+                    <% } else { %>
+                        <p>Corpo do artigo não disponível</p>
+                    <% } %>
+                </div>
+                
+            </div>
+            <br>
+    </div>
+    
+</body>
+<%- include('partials/footer.ejs') %>

@@ -1,6 +1,43 @@
 <%- include('partials/header.ejs') %>
+<%- include('partials/homeNavbar.ejs') %>
 <body>
-    <%- include('partials/navbar.ejs') %>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-5">Bem Vindo(a)</h1>
+            <p class="lead">O conteudo de tecnologia para ajudar seu dia a dia</p>
+            <hr class="my-4">
+            <p>React, Node , Javascript , C#</p>
+        </div>
+        <hr>
+        <% articles.forEach(article => { %>
+         
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title"><%= article.title %></h5>
+                </div>
+                <div class="card-body">   
+                    <a href="/<%= article.slug %>" class="btn btn-success"> Ler artigo</a>
+                </div>
+            </div>
+            <br>
+        <%})%>
+        <div class="row">
+            <div class="col col-12">
+                <a style="float: right" href='/articles/page/2'>Next >>></a>
+            </div>
+            <hr>
+        </div>
+        <hr>
+        <!--nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="next">Previous</a></li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </nav-->
+    </div>
     
 </body>
 <%- include('partials/footer.ejs') %>
