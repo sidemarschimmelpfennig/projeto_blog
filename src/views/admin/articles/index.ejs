@@ -3,19 +3,20 @@
 
 <div class="container">
     <br>
-    <h2>Categorias</h2>
+    <h2>Artigos</h2>
     <br>
         <a class="btn btn-success" href="/admin/articles/new">Criar novo  Artigo</a>
     <br>
     <br>
-    <table class="table table-bordered">
+    <table class="table table-bordered" style="text-align: center;">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Titulo</th>
                 <th>Slug</th>
                 <th>Categoria</th>
-                <th>Ações</th>
+                <th>Editar</th>
+                <th >Deletar</th>
             </tr>
         </thead>
         <tbody>          
@@ -30,11 +31,13 @@
                             <input type="hidden" name="id" value="<%= article.id %>">
                             <button class="btn btn-warning" >Editar</button>
                         </form>
+                    </td>  
+                    <td>
                         <form action="/articles/delete" method="POST" style="display: inline;" onsubmit="deleteCategory(event, this)">
                             <input type="hidden" name="id" value="<%= article.id %>">
                             <button class="btn btn-danger">Delete</button>
                         </form>
-                    </td>  
+                    </td>
                 </tr>   
             <%})%>
         </tbody>

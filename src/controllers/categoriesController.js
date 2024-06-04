@@ -1,12 +1,13 @@
 const slugify = require('slugify')
 const {Category} = require('../models')
 const router = require('express').Router()
+const adminAuth = require('../middlewares/adminAuth')
 
-router.get('/admin/categories/new',(req ,res)=>{
+router.get('/admin/categories/new',adminAuth,(req ,res)=>{
     res.render('admin/categories/new')
 })
 
-router.get('/admin/categories',(req,res)=>{
+router.get('/admin/categories',adminAuth,(req,res)=>{
     Category.findAll()
     .then(categories => res.render('admin/categories/index', {categories : categories}) )
 })
@@ -45,7 +46,7 @@ router.post('/categories/delete', (req, res)=>{
 })
 
 // Busca todos os 
-router.get('/admin/categories/edit/:id', (req, res)=>{
+router.get('/admin/categories/edit/:id', adminAuth, (req, res)=>{
     let id = req.params.id
     Category.findByPk(id)
     .then(category=>{

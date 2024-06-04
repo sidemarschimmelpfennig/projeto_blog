@@ -1,12 +1,12 @@
 const router = require('express').Router()
 const slugify = require('slugify')
 const {Article, Category} = require('../models')
-
+const adminAuth = require('../middlewares/adminAuth')
 
 
 //Index View
 
-router.get('/admin/articles', (req, res)=>{
+router.get('/admin/articles',adminAuth, (req, res)=>{
     Article.findAll({
         include:[{model : Category}]
     })
@@ -20,14 +20,14 @@ router.get('/admin/articles', (req, res)=>{
 })
 
 //Create View
-router.get( "/admin/articles/new", (req, res) =>{
+router.get( "/admin/articles/new",adminAuth, (req, res) =>{
     Category.findAll().then(categories =>{
         res.render('admin/articles/new',{categories : categories})
     })   
 })
 
 //Edit view 
-router.get('/admin/articles/edit/:id', (req, res)=>{
+router.get('/admin/articles/edit/:id',adminAuth, (req, res)=>{
     let id = req.params.id
     Article.findByPk(id)
     .then(article =>{
