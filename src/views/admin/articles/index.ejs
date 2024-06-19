@@ -8,6 +8,11 @@
         <a class="btn btn-success" href="/admin/articles/new">Criar novo  Artigo</a>
     <br>
     <br>
+    <form class="d-flex mb-5" method="get" action="/">
+        <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    
     <table class="table table-bordered" style="text-align: center;">
         <thead>
             <tr>
@@ -35,7 +40,8 @@
                     <td>
                         <form action="/articles/delete" method="POST" style="display: inline;" onsubmit="deleteCategory(event, this)">
                             <input type="hidden" name="id" value="<%= article.id %>">
-                            <button class="btn btn-danger">Delete</button>
+                            <i class="bi bi-plus-square-fill"></i>
+                            <!--button class="btn btn-danger">Delete</button-->
                         </form>
                     </td>
                 </tr>   
